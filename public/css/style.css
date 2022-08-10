@@ -6,8 +6,10 @@ body {
 	font-family: "Inter", "Poppins", sans-serif;
 	margin: 0;
 	padding: 0;
-}
+	background-image: url(https://images.ctfassets.net/dm4oa8qtogq0/2bhyPKL77by5Pbifjd03wy/8df4d2030d1a0ee7a6cfc99d23cbbe7c/illustration_featured-swoosh.jpg?fm=webp&w=1200);
 
+
+}
 .center {
 	margin: auto;
 }
@@ -37,11 +39,14 @@ form .formBody button {
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
-
+    cursor: pointer;
 	transition: all 0.2s cubic-bezier(0, 0, 0, 0.99) 0s;
 }
-
 form .formBody {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 	padding: 1px;
 	width: 90%;
 	background-color: #fff;
@@ -53,11 +58,32 @@ form .formBody {
 form .formBody input[type="text"]:focus {
 	outline-width: 0;
 }
-
 form .formBody button:hover {
 	background-color: #1b9ce4;
 	color: #fff;
 	box-shadow: 0px 0px 9px 0px #72889f;
+}
+
+form .formBody .datepicker-toggle {
+    display: block;
+    position: relative;
+ /*   width: 18px;*/
+    /*height: 19px;*/
+    color: #1266f1;
+
+}
+
+form .formBody .datepicker-toggle .datepicker-in{
+position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+
 }
 hr {
 	margin: 35px;
@@ -68,7 +94,6 @@ hr {
 	flex-direction: column;
 	align-items: flex-start;
 }
-
 .tasks .task #checkId {
 	margin: 5px;
 	width: 20px;
@@ -84,11 +109,16 @@ hr {
 	justify-content: space-between;
 	align-items: center;
 }
-.tasks .task  span {
-font-size: 25px;
+.tasks .task span {
+	font-size: 25px;
 }
-
-.tasks .task div i{
-color : #F44C55
-} 
-
+.completed {
+	color: gray;
+	text-decoration: line-through;
+}
+.tasks .task .trash-can {
+	padding: 10px;
+}
+.tasks .task .trash-can .fa-trash {
+	color: #f44c55;
+}

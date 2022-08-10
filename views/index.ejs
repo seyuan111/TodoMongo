@@ -15,41 +15,42 @@
 </head>
 <body>
     <div class="container ">
-        <form action="/addTodo" method="POST">
+        
+        <form action="/addTodo" method="POST">    
             <h1 >Todo List </h1>
             <div class="formBody">
+                
                 <input type="text" placeholder="Thing To Do" name="task">
-                <button>ADD</button>
+                    <div class="datepicker-toggle" >
+<i class='fas fa-calendar-alt' style='font-size:30px'></i>
+                <input type="date" class="datepicker-in">
 
-        </div>
-            </form>
-            <hr/>
+                </div>
+                                <button>ADD</button>
+            
+            </div>
+        </form>
+        <hr/>
 
      <div class="tasks"> 
-            <% for(let i=0; i < items.length; i++) { %>
+         
+         <% for(let i=0; i < items.length; i++) { %>
+         
+         <div class="task">
+             <div>
+                 <input type=checkbox  name="check" id="checkId" onclick="checkItem(this)"  <%= (items[i].completed?"checked":'') %> >
+                 <span  <%=items[i].completed?"class=completed": "class=''" %>  ><%= items[i].task %></span>
+             </div>
 
-        <div class="task"> 
-                        <div>
-
-                    <input type=checkbox  name="check" id="checkId" value="<%= LeftTodo%>"/>
-                    <span>
-                            <%= items[i].task %>
-
-                            </span>
-                        </div>
-                    <!--<% if(items[i].completed === true ) {%>-->
-                        <!--<span class='completed'><%= items[i].task %> </span> -->
-                    <!--<%} else {%>-->
-                    <!--<% } %>-->
-        
-                    <div>
-                        <i class='fa fa-trash'></i></div>
-                    </div>
-        <% } %>
-
-    <h2>Left to do:<%= LeftTodo %> </h2>
-</div>
- </div>
+             <div class="trash-can"><i class='fa fa-trash'></i></div>  
+         </div>
+       
+         <% } %>
+         
+         <h2>Left to do: <%= LeftTodo %> Task</h2>
+     </div>
+    </div>
+    
     <script src='js/main.js'></script>
 </body>
 </html>
